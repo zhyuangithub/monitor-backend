@@ -1,0 +1,146 @@
+definitions:
+  uiserver.changeNodeNameStruct:
+    properties:
+      nodeId:
+        type: integer
+      nodeName:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /ChangeNodeName:
+    post:
+      consumes:
+      - application/json
+      description: 修改某个节点的名称
+      parameters:
+      - description: JSON数据
+        in: body
+        name: Data
+        required: true
+        schema:
+          $ref: '#/definitions/uiserver.changeNodeNameStruct'
+      produces:
+      - application/json
+      responses: {}
+      summary: 修改节点名称
+      tags:
+      - Post
+  /GetNodeDataHistory:
+    get:
+      consumes:
+      - application/json
+      description: 获取节点的数据记录
+      parameters:
+      - description: 起始时间戳
+        in: query
+        name: startTimestamp
+        required: true
+        type: integer
+      - description: 结束时间戳
+        in: query
+        name: endTimestamp
+        required: true
+        type: integer
+      - description: 节点id
+        in: query
+        name: nodeId
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses: {}
+      summary: 获取数据记录
+      tags:
+      - Get
+  /GetNodeEventLogs:
+    get:
+      consumes:
+      - application/json
+      description: 获取单个节点的事件信息
+      parameters:
+      - description: 节点id
+        in: query
+        name: nodeId
+        required: true
+        type: integer
+      - description: 事件类型分类 -1:all; 0:dismount; 1:nfc; 2:sleeping
+        in: query
+        name: category
+        type: integer
+      - description: 数量
+        in: query
+        name: count
+        required: true
+        type: integer
+      - description: 页码
+        in: query
+        name: page
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses: {}
+      summary: 获取节点事件
+      tags:
+      - Get
+  /GetNodeInfo:
+    get:
+      consumes:
+      - application/json
+      description: 获取单个节点的信息，节点状态字符串种类：online,offline
+      parameters:
+      - description: 节点id
+        in: query
+        name: nodeId
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses: {}
+      summary: 获取节点信息
+      tags:
+      - Get
+  /GetNodesInfo:
+    get:
+      consumes:
+      - application/json
+      description: 按页码和数量获取全部节点的信息，节点状态字符串种类：online,offline
+      parameters:
+      - description: 数量
+        in: query
+        name: count
+        required: true
+        type: integer
+      - description: 页码
+        in: query
+        name: page
+        required: true
+        type: integer
+      - description: 节点名称，可进行模糊查询
+        in: query
+        name: name
+        type: string
+      - description: 节点状态，online,offline两种
+        in: query
+        name: status
+        type: string
+      produces:
+      - application/json
+      responses: {}
+      summary: 批量获取节点信息
+      tags:
+      - Get
+  /notificationCenter:
+    get:
+      consumes:
+      - application/json
+      description: websocket通知接口
+      produces:
+      - application/json
+      responses: {}
+      summary: websocket通知
+      tags:
+      - Websocket
+swagger: "2.0"

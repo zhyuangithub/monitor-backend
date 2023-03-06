@@ -1,0 +1,61 @@
+{
+    "action": "GatewayState",
+    "data": {
+        "gatewayId": 0,
+        "firmwareVersion": "xxx",
+        "connectionType": "ethernet",
+        "status": "online",
+        "ipv4": "",
+        "ipv6": ""
+    }
+}
+{
+    "action": "GatewayHeartBeat",
+    "data": {
+        "gatewayId": 0,
+        "ipv4": "",
+        "ipv6": ""
+    }
+}
+{
+    "action": "MonitorState",
+    "data": {
+        "monitorId": 0,
+        "viaGatewayId": 0,
+        "lastUpdatedAt": "2023-02-24 15:01:48",
+        "rssi": 0,
+        "snr": 0,
+        "vbat": 0,
+        "ambientTemperature": 0,
+        "objectTemperature": 0,
+        "thermal": true,
+        "voltage": 0,
+        "current": 0,
+        "power": 0,
+        "kwh": 0
+    }
+}
+{
+    "action": "Dismount",
+    "data": {
+        "monitorId": 0
+    }
+}
+{
+    "action": "NFCCardRead",
+    "data": {
+        "monitorId": 0,
+        "cardId": "123"
+    }
+}
+{
+    "action": "MonitorSleeping",
+    "data": {
+        "monitorId": 0,
+        "viaGatewayId": 0,
+        "lastUpdatedAt": "2023-02-24 14:45:48",
+        "rssi": 0,
+        "snr": 0,
+        "vbat": 0
+    }
+}
